@@ -82,7 +82,7 @@ while($row = mysql_fetch_assoc($cameras)) {
 		
 	$arquivo = $dir . $arquivo;
 	
-	$comando = "/usr/bin/vlc -I dummy " .$row['cam_url']. " --sout '#transcode{}:duplicate{dst=std{access=file,mux=mp4,dst={" .$arquivo. "}}}' --run-time='" .$duracao_video. "' --stop-time='" .$duracao_video. "' vlc://quit ";
+	$comando = "/usr/bin/vlc -I dummy '" .$row['cam_url']. "' --sout '#transcode{}:duplicate{dst=std{access=file,mux=mp4,dst={" .$arquivo. "}}}' --run-time='" .$duracao_video. "' --stop-time='" .$duracao_video. "' vlc://quit ";
 	exec($comando. " > /dev/null &");
 
 }
